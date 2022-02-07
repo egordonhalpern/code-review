@@ -9,3 +9,9 @@
 > Describe your programming development during Div II. What new things have you learned? How have you grown as a programmer? How has your understanding of R changed? 
 >
 > Suggested length: 2-3 paragraphs
+
+# Div III statement
+
+> Describe your programming development during Div III. What new things have you learned? How have you grown as a programmer? How has your understanding of R changed? 
+>
+> Suggested length: 2-3 paragraphs

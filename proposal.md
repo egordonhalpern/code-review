@@ -1,4 +1,10 @@
-# Div III proposal
+# Div I R package idea
+
+> Please describe a preliminary idea for an R package. 
+> 
+> Suggested length: 1-2 sentences
+
+# Div II proposal
 
 > Please describe the R package that you plan to develop for Div III. Is it a new package? Or is it a substantial revision of an existing package? What will it do? Why will it be useful? Who would use it? What features will it have? 
 >
