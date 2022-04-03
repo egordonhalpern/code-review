@@ -1,6 +1,6 @@
 ---
 title: "Div I Project"
-author: "Put your name here"
+author: "Elina Gordon-Halpern"
 date: "February 25, 2022"
 output: 
   html_document:
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Purpose
 
-> What is the purpose of your function? What problem does it solve? When would you use it? 
+> The purpose of my function is to serve as a budgeting tool. It takes in two inputs: the user's annual salary, estimated to the nearest $1000, and the percent of their income that they would like to contribute to savings, and returns a suggested goal for ideal monthly savings.
 
 ### Dependencies/Setup
 
@@ -32,32 +32,39 @@ library(tidyverse)
 
 > List the arguments your function takes. Specify the data type, default value (if applicable), and any other assumptions you are making about the value of each argument. 
 
-- `x`: a numeric vector
+- `x`: a numeric vector representing annual salary, in 1000's of dollars.
+- `y`: a numeric vector representing the percent of monthly income that the user would like to contribute to savings.
 
 ### Result
 
 > What does your function return? Specify the data type and any other assumptions you are making. 
 
-- a numeric vector of the squared values of the input vector `x`. 
+- a numeric vector representing the ideal monthly savings based on the salary and savings goal represented by the input vectors `x` and `y`. 
 
 ## Code
 
 > Paste your code in the chunk below. 
 
 ```{r code}
-square <- function(x) {
-  x ^2
-}
+salary_to_savings <- function(x,y) {
+ ((x * 1000)/12)/(100/y)
+
 ```
 
 ## Examples
 
 > Give 2-3 examples of typical usage of your function. Describe in words what is being illustrated.
 
-This shows the first 10 perfect squares. 
+This demonstrates a simple example of the function, the suggested savings for an annual salary of $75k and a goal of saving 15% of monthly income:
 
 ```{r ex1}
-square(1:10)
+salary_to_savings(75, 15)
+```
+
+This shows a list of suggestions for annual salaries of $50-100k with the goal of contributing 20% to savings:
+
+```{r}
+salary_to_savings(50:100, 20)
 ```
 
 ## Testing
@@ -65,14 +72,15 @@ square(1:10)
 > Provide a few examples of outputs that you expect your function will match, given a specific input. [Best if you use the [`testthat` package](https://github.com/r-lib/testthat).] 
 
 ```{r tests, message=FALSE}
-square(0) == 0^2
-square(10) == 10^2
-square(-1) == square(1)
+salary_to_savings(0,0) ==  ((0 * 1000)/12)/(100/0)
+salary_to_savings(70,18) ==  ((70 * 1000)/12)/(100/18)
+salary_to_savings(55,22) ==  ((55 * 1000)/12)/(100/22)
 
 # using testthat
 library(testthat)
-expect_equal(square(0), 0^2)
-expect_equal(square(10), 10^2)
-expect_equal(square(-1), square(1))
+expect_equal(salary_to_savings(0,0),((0 * 1000)/12)/(100/0))
+expect_equal(salary_to_savings(70,18),((70 * 1000)/12)/(100/18))
+expect_equal(salary_to_savings(55,22),((55 * 1000)/12)/(100/22))
+
 ```
 
